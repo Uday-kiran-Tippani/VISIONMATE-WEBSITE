@@ -207,4 +207,5 @@ The assistant will continually listen for voice commands. You can trigger comman
 #### 4. Google Maps is not speaking navigation instructions in the background
 * **Solution:** Ensure your device volume is turned up. The app is configured with automatic ducking settings, meaning it will lower its own speech volume whenever Google Maps issues background navigation directions.
 #   V I S I O N M A T E - W E B S I T E  
+ #   V I S I O N M A T E - W E B S I T E  
  
