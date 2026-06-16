@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisionMate — Smart Blind Assistance System</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="VisionMate is an AI-powered, real-time blind assistance system featuring on-device obstacle detection and voice-controlled smart navigation.">
+  <meta name="keywords"
+    content="VisionMate, Blind Assistant, Edge AI, NCNN, YOLOv8, React Native, Visual Impairment, Navigation Assistant">
+  <meta name="author" content="Uday Kiran Tippani">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-bottom"></div>
+
+  <!-- Custom trail cursor elements -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-glow" id="custom-cursor-glow"></div>
+
+  <!-- Glassmorphism Header -->
+  <header>
+    <a href="#" class="logo" id="nav-logo">
+      <i class="fa-solid fa-terminal"></i> VISION-MATE
+    </a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#story">Installation Story</a></li>
+      <li><a href="#gallery">Screenshots</a></li>
+      <li><a href="#creator">Creator</a></li>
+      <li><a href="#downloads">Downloads</a></li>
+    </ul>
+    <button class="menu-btn" id="menu-toggle" aria-label="Toggle Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="status-badge">
+      <span class="status-dot"></span> SYSTEM ACTIVE // Version.21
+    </div>
+    <h1 class="hero-title">Empowering Vision<br><span>Vision-Mate</span></h1>
+    <p class="hero-subtitle">
+      An advanced React Native Expo application designed to assist visually impaired individuals. Integrates an
+      Interactive Voice Assistant and real-time On-Device Obstacle Detector using C++ NCNN neural networks.
+    </p>
+    <div class="hero-cta">
+      <a href="#downloads" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Center</a>
+      <a href="#story" class="btn btn-secondary"><i class="fa-solid fa-book-open"></i> Read Setup Story</a>
+    </div>
+  </section>
+
+  <!-- Key Features Grid -->
+  <section id="features">
+    <h2 class="section-title">Core Subsystems</h2>
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="spotlight-card">
+        <div class="feature-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+        <h3 class="feature-title">Interactive Voice AI</h3>
+        <p class="feature-desc">A voice-controlled virtual helper performing task automation including calling contacts,
+          sending WhatsApp messages, battery checks, Google searches, and reverse geocoding location reporting.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="spotlight-card">
+        <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3 class="feature-title">On-Device Edge AI</h3>
+        <p class="feature-desc">Uses high-performance NCNN framework to load YOLOv8n object detection model locally. No
+          cloud latency. Works fully offline in millisecond response times.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="spotlight-card">
+        <div class="feature-icon"><i class="fa-solid fa-road-barrier"></i></div>
+        <h3 class="feature-title">Obstacle Classifier</h3>
+        <p class="feature-desc">Identifies potholes, speed breakers, unpaved roads, and generic objects. Provides
+          instant localized audio feedback like "Pothole ahead, move carefully".</p>
+      </div>
+      <!-- Feature 4 -->
+      <div class="spotlight-card">
+        <div class="feature-icon"><i class="fa-solid fa-route"></i></div>
+        <h3 class="feature-title">Maps & Navigation</h3>
+        <p class="feature-desc">Links directly with Google Maps walking mode. Automatically triggers environmental
+          camera scanning upon returning to the assistant workspace.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Scroll Setup Story -->
+  <section id="story">
+    <h2 class="section-title">Setup Journey</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 50px; max-width: 600px;">
+      Follow the scroll-revealed timeline to configure and run the VisionMate ecosystem from source code to your mobile
+      device.
+    </p>
+
+    <div class="story-timeline">
+      <!-- Step 1 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 01</span>
+        <h3 class="timeline-h3">Preparing Prerequisites</h3>
+        <div class="timeline-content">
+          <p>Before beginning, compile your laptop and phone configurations. Ensure you have the following ready:</p>
+          <ul style="margin-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+            <li><strong>Node.js</strong>: LTS version 18.x or higher installed.</li>
+            <li><strong>Expo Developer Account</strong>: Free registration on <a href="https://expo.dev/"
+                target="_blank" style="color: var(--neon-green);">expo.dev</a>.</li>
+            <li><strong>Android Phone</strong>: Connect your computer and mobile phone to the <strong>same Wi-Fi
+                network</strong> (only required for hot reloading dev builds).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 02</span>
+        <h3 class="timeline-h3">Environment Setup & Installation</h3>
+        <div class="timeline-content">
+          <p>Extract the project code directory and launch your terminal console. Run the package commands to set up
+            laptop dependencies:</p>
+          <div class="code-block-wrapper">
+            <pre><code># Install node package modules
+npm install
+
+# Install Expo Application Services (EAS) CLI globally
+npm install -g eas-cli
+
+# Securely login to your expo dev environment
+npx eas-cli login</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 03</span>
+        <h3 class="timeline-h3">Building Standalone Application (Option A)</h3>
+        <div class="timeline-content">
+          <p>Compiles a fully independent APK using Expo's cloud compiler. This does not require your laptop to remain
+            running or active after installation.</p>
+          <div class="code-block-wrapper">
+            <pre><code># Trigger Android cloud build profile for preview release
+npx eas-cli build --platform android --profile preview</code></pre>
+          </div>
+          <p style="margin-top: 10px;">
+            Wait <strong>5 to 15 minutes</strong> for compilation. Once completed, download the APK by clicking the URL
+            generated or scan the printed terminal QR Code.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 04</span>
+        <h3 class="timeline-h3">Live Development Client (Option B)</h3>
+        <div class="timeline-content">
+          <p>If you want to modify code and see changes in real-time, build a custom developer container first, then
+            launch Metro Bundler:</p>
+          <div class="code-block-wrapper">
+            <pre><code># Step B1: Compile custom development client APK
+npx eas-cli build --platform android --profile development
+
+# Step B2: Install downloaded APK, then launch local bundler server
+npx expo start</code></pre>
+          </div>
+          <div class="story-warning">
+            <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444; margin-right: 8px;"></i>
+            <strong>CRITICAL WARNING:</strong> Standard Expo Go downloaded from the Play Store will crash! The NCNN C++
+            obstacle detection framework requires custom native modules compiled via these EAS workflows.
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 05</span>
+        <h3 class="timeline-h3">Mobile Client Installation & Permissions</h3>
+        <div class="timeline-content">
+          <p>Install the downloaded APK on your Android phone (bypass Google Play Protect warning if prompted). Launch
+            the app and grant these crucial hardware permissions:</p>
+          <ul style="margin-left: 20px; margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+            <li><strong>Audio Recording</strong>: Used by the Speech-to-Text module to register voice commands.</li>
+            <li><strong>Camera Access</strong>: Allows YOLOv8 model to scan physical environments.</li>
+            <li><strong>GPS / Location</strong>: Performs reverse geocoding for navigation commands.</li>
+            <li><strong>Contacts</strong>: Retrives system numbers to trigger dialing calls.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="timeline-step">
+        <div class="timeline-dot"></div>
+        <span class="timeline-badge">PHASE 06</span>
+        <h3 class="timeline-h3">System Operation & Commands</h3>
+        <div class="timeline-content">
+          <p>Once active, the interface blacks out (conserving blind user battery). Trigger features by speaking these
+            vocal prompts:</p>
+          <div
+            style="margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 10px 15px;">Prompt Trigger</th>
+                  <th style="padding: 10px 15px;">Functional Action Taken</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 10px 15px; font-family: var(--font-mono); color: var(--neon-green);">"Obstacle
+                    detection"</td>
+                  <td style="padding: 10px 15px;">Activates back camera and overlay scans green walking lanes.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 10px 15px; font-family: var(--font-mono); color: var(--neon-green);">"Where am I?"
+                  </td>
+                  <td style="padding: 10px 15px;">Speaks geocoded local road/city name details.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 10px 15px; font-family: var(--font-mono); color: var(--neon-green);">"Call [Name]"
+                  </td>
+                  <td style="padding: 10px 15px;">Matches name in contacts list and dials number.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 15px; font-family: var(--font-mono); color: var(--neon-green);">"Navigate to
+                    [Place]"</td>
+                  <td style="padding: 10px 15px;">Opens walking route directly inside Google Maps.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title">Application Proofs</h2>
+    <div class="tabs-header">
+      <button class="tab-btn active" onclick="switchTab(event, 'output-screens')">Output Screens</button>
+      <button class="tab-btn" onclick="switchTab(event, 'app-screenshots')">App Screenshots</button>
+      <button class="tab-btn" onclick="switchTab(event, 'uml-diagrams')">UML Diagrams</button>
+    </div>
+
+    <!-- Output Screens (Obstacle Detection) Tab -->
+    <div id="output-screens" class="tab-content active">
+      <div class="gallery-grid">
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/op.png', 'Outdoor Pothole Scanner', 'Real-time road obstacle scanning with active green safety walking lane overlay.')">
+          <img src="OutPut Screens/op.png" alt="Outdoor Pothole Scanner">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Pothole Scan</span>
+            <span class="gallery-desc">YOLOv8 Road Analysis</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/opp2.png', 'Edge AI Inference', 'Distance estimation overlay with directional speech alert guides.')">
+          <img src="OutPut Screens/opp2.png" alt="Edge AI Inference">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Distance Overlay</span>
+            <span class="gallery-desc">Pothole Warning Overlay</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image4.png', 'Indoor Laptop Classifier', 'High-accuracy real-time object classification for laptop computers.')">
+          <img src="OutPut Screens/S1_images/image4.png" alt="Indoor Laptop Classifier">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Laptop Classifier</span>
+            <span class="gallery-desc">Indoor Scanner View</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image6.png', 'Indoor Chair Classifier', 'Frictionless edge classification and warning overlay for seating obstacles.')">
+          <img src="OutPut Screens/S1_images/image6.png" alt="Indoor Chair Classifier">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Chair Classifier</span>
+            <span class="gallery-desc">Indoor Obstacle Detection</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image7.png', 'Workstation Scanning', 'Simultaneous recognition of multiple tech equipment in workspace paths.')">
+          <img src="OutPut Screens/S1_images/image7.png" alt="Workstation Scanning">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Multi-Object Scan</span>
+            <span class="gallery-desc">Desktop/Monitor Classifier</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image8.png', 'Appliance Recognition', 'Obstacle detection calibration detecting appliances like refrigerators.')">
+          <img src="OutPut Screens/S1_images/image8.png" alt="Appliance Recognition">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Appliance Scan</span>
+            <span class="gallery-desc">Indoor Device Warning</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image9.png', 'Road Pothole Scanning', 'YOLOv8 Nano inference identifying road structure hazards.')">
+          <img src="OutPut Screens/S1_images/image9.png" alt="Road Pothole Scanning">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Outdoor Pothole</span>
+            <span class="gallery-desc">Road Crack Warning</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image10.png', 'Speed Breaker Detection', 'High confidence tracking of elevated speed bumps on walking lane path.')">
+          <img src="OutPut Screens/S1_images/image10.png" alt="Speed Breaker Detection">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Speed Breaker</span>
+            <span class="gallery-desc">Elevation Hazard Alert</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-04-21 222818.png', 'Indoor Detection Banner', 'General indoor classifier demonstration with chair and desk bounds.')">
+          <img src="Some useful screen shots/Screenshot 2026-04-21 222818.png" alt="Indoor Detection Banner">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Indoor Banner</span>
+            <span class="gallery-desc">Demonstration Graphic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Screenshots (User Interfaces & Setup) Tab -->
+    <div id="app-screenshots" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-04-21 222712.png', 'Vocal Assistant Interface', 'Initial greeting and active voice command list view.')">
+          <img src="Some useful screen shots/Screenshot 2026-04-21 222712.png" alt="Vocal Assistant Interface">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Assistant UI</span>
+            <span class="gallery-desc">Home Layout</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-04-21 222833.png', 'Integration Banner', 'Showcases third-party services linked to vocal prompts.')">
+          <img src="Some useful screen shots/Screenshot 2026-04-21 222833.png" alt="Integration Banner">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Services Link</span>
+            <span class="gallery-desc">Feature Flow Diagram</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image5.png', 'Vocal Command Listening', 'Voice assistant listening panel prompting for commands.')">
+          <img src="OutPut Screens/S1_images/image5.png" alt="Vocal Command Listening">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Voice Recognition</span>
+            <span class="gallery-desc">Speech to Text Mode</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image15.png', 'Google Maps Navigation', 'Opens walking navigation mode for coordinates via reverse geocoding.')">
+          <img src="OutPut Screens/S1_images/image15.png" alt="Google Maps Navigation">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Maps Navigation</span>
+            <span class="gallery-desc">Gmaps Walking Mode</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image13.png', 'WhatsApp Location Share', 'Pre-fills message template containing current GPS coordinates.')">
+          <img src="OutPut Screens/S1_images/image13.png" alt="WhatsApp Location Share">
+          <div class="gallery-overlay">
+            <span class="gallery-title">WhatsApp Share</span>
+            <span class="gallery-desc">Location Coordinate Dispatch</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image20.png', 'Call Dialer Integration', 'Opens native system dialer searching contact by voice command.')">
+          <img src="OutPut Screens/S1_images/image20.png" alt="Call Dialer Integration">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Phone Dialer</span>
+            <span class="gallery-desc">Contact Calling Setup</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image11.png', 'YouTube Music Search', 'Vocal search query prefilled on Spotify / YouTube Music player.')">
+          <img src="OutPut Screens/S1_images/image11.png" alt="YouTube Music Search">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Music Launcher</span>
+            <span class="gallery-desc">Command Play Result</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image17.png', 'YouTube Video Playback', 'Video search results launch using customized system intent triggers.')">
+          <img src="OutPut Screens/S1_images/image17.png" alt="YouTube Video Playback">
+          <div class="gallery-overlay">
+            <span class="gallery-title">YouTube Intent</span>
+            <span class="gallery-desc">Command Launch Result</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image19.png', 'Google Search Integration', 'Displays search listings corresponding to query spoken by user.')">
+          <img src="OutPut Screens/S1_images/image19.png" alt="Google Search Integration">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Web Search</span>
+            <span class="gallery-desc">In-App Browser Results</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image1.jpeg', 'APK File Repository', 'Android system file explorer showing downloaded compiler packages.')">
+          <img src="OutPut Screens/S1_images/image1.jpeg" alt="APK File Repository">
+          <div class="gallery-overlay">
+            <span class="gallery-title">File Explorer</span>
+            <span class="gallery-desc">VisionMate Binaries</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image2.jpeg', 'App Installer Status', 'Successful package signature verification and installation.')">
+          <img src="OutPut Screens/S1_images/image2.jpeg" alt="App Installer Status">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Installer Completed</span>
+            <span class="gallery-desc">Android OS Installation</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('OutPut Screens/S1_images/image3.jpeg', 'Development Connect Splash', 'Dev container launcher connecting client apps to Metro servers.')">
+          <img src="OutPut Screens/S1_images/image3.jpeg" alt="Development Connect Splash">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Dev Build Splash</span>
+            <span class="gallery-desc">Hot Reload Container</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-06-16 130622.png', 'Expo EAS Cloud Dashboard', 'Development client cloud compilation pipeline tracking history.')">
+          <img src="Some useful screen shots/Screenshot 2026-06-16 130622.png" alt="Expo EAS Cloud Dashboard">
+          <div class="gallery-overlay">
+            <span class="gallery-title">EAS Dashboard</span>
+            <span class="gallery-desc">Cloud Build History</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-06-16 143158.png', 'Metro Bundler Terminal', 'Laptop server console generating QR code connection port.')">
+          <img src="Some useful screen shots/Screenshot 2026-06-16 143158.png" alt="Metro Bundler Terminal">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Metro Server</span>
+            <span class="gallery-desc">Metro QR Terminal</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-06-16 143248.png', 'EAS Build Browser Success', 'Finished preview build specifications on Expo services.')">
+          <img src="Some useful screen shots/Screenshot 2026-06-16 143248.png" alt="EAS Build Browser Success">
+          <div class="gallery-overlay">
+            <span class="gallery-title">EAS Success Page</span>
+            <span class="gallery-desc">APK Compilation Complete</span>
+          </div>
+        </div>
+        <div class="gallery-item"
+          onclick="openLightbox('Some useful screen shots/Screenshot 2026-06-16 143356.png', 'EAS Build CLI Detail', 'Finished Android compilation details printed in VS Code terminal.')">
+          <img src="Some useful screen shots/Screenshot 2026-06-16 143356.png" alt="EAS Build CLI Detail">
+          <div class="gallery-overlay">
+            <span class="gallery-title">CLI EAS Build Log</span>
+            <span class="gallery-desc">Terminal Compilation Log</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UML Diagrams Grid -->
+    <div id="uml-diagrams" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item landscape"
+          onclick="openLightbox('uday uml/use case diagram.png', 'Use Case Diagram', 'Details actor interactions with the system modules.')">
+          <img src="uday uml/use case diagram.png" alt="Use Case Diagram">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Use Case Diagram</span>
+            <span class="gallery-desc">Functional Relationships</span>
+          </div>
+        </div>
+        <div class="gallery-item landscape"
+          onclick="openLightbox('uday uml/class diagram.png', 'Class Diagram', 'Displays application structure, classes, methods, and relationships.')">
+          <img src="uday uml/class diagram.png" alt="Class Diagram">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Class Diagram</span>
+            <span class="gallery-desc">OOP Architecture</span>
+          </div>
+        </div>
+        <div class="gallery-item landscape"
+          onclick="openLightbox('uday uml/sequence.png', 'System Sequence Diagram', 'Visualizes chronological messaging flows between classes and services.')">
+          <img src="uday uml/sequence.png" alt="System Sequence Diagram">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Sequence Diagram</span>
+            <span class="gallery-desc">Execution Pipeline Flow</span>
+          </div>
+        </div>
+        <div class="gallery-item landscape"
+          onclick="openLightbox('uday uml/ac diagram.png', 'Activity Workflow Diagram', 'Maps decision branches for voice assistant and scanning features.')">
+          <img src="uday uml/ac diagram.png" alt="Activity Workflow Diagram">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Activity Diagram</span>
+            <span class="gallery-desc">Logical Execution Steps</span>
+          </div>
+        </div>
+        <div class="gallery-item landscape"
+          onclick="openLightbox('uday uml/s diagram.png', 'Collaboration Sequence Diagram', 'Visualizes voice commands, maps routing and coordinates execution paths.')">
+          <img src="uday uml/s diagram.png" alt="Collaboration Sequence Diagram">
+          <div class="gallery-overlay">
+            <span class="gallery-title">Collaboration Diagram</span>
+            <span class="gallery-desc">Service Integrations Flow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> <!-- Creator Section -->
+  <section id="creator">
+    <h2 class="section-title">Developer & Supervisor</h2>
+    <div class="creator-container">
+      <div class="creator-card-wrapper" id="creator-card-wrapper">
+        <div class="creator-card-inner" id="creator-card-inner">
+
+          <!-- Front Side: T. Uday Kiran Profile -->
+          <div class="creator-card-front spotlight-card">
+            <div class="creator-photo-wrapper">
+              <img src="CREATOR/MR.UDAY KIRAN TIPPANI.png" alt="UDAY KIRAN TIPPANI" class="creator-photo">
+            </div>
+            <h3 class="creator-name">UDAY KIRAN TIPPANI</h3>
+            <span class="creator-title">PROJECT DESIGNER & MOBILE DEVELOPER</span>
+
+            <div class="creator-details">
+              <div class="creator-detail-row">
+                <span class="creator-label">Registration No:</span>
+                <span class="creator-val">248865100055 (II MCA)</span>
+              </div>
+              <div class="creator-detail-row">
+                <span class="creator-label">Department:</span>
+                <span class="creator-val">Computer Science & Engineering</span>
+              </div>
+              <div class="creator-detail-row">
+                <span class="creator-label">University:</span>
+                <span class="creator-val">Adikavi Nannaya University</span>
+              </div>
+              <div class="creator-detail-row">
+                <span class="creator-label">Under Guidance of:</span>
+                <span class="creator-val">
+                  <span class="advisor-link" onclick="flipCreatorCard(event)">Dr. D. DASU (Assistant Professor)</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Back Side: Dr. D. Dasu Profile -->
+          <div class="creator-card-back spotlight-card">
+            <div class="creator-photo-wrapper">
+              <img src="CREATOR/DASU SIR IMAGE.png" alt="Dr. D. Dasu" class="creator-photo">
+            </div>
+            <h3 class="creator-name">Dr. D. DASU</h3>
+            <span class="creator-title">RESEARCH ADVISOR & PROJECT GUIDE</span>
+
+            <div class="creator-details">
+              <div class="creator-detail-row">
+                <span class="creator-label">Designation:</span>
+                <span class="creator-val">Assistant Professor</span>
+              </div>
+              <div class="creator-detail-row">
+                <span class="creator-label">Department:</span>
+                <span class="creator-val">Computer Science & Engineering</span>
+              </div>
+              <div class="creator-detail-row">
+                <span class="creator-label">University:</span>
+                <span class="creator-val">Adikavi Nannaya University</span>
+              </div>
+              <div class="creator-detail-row"
+                style="text-align: left; margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.08); padding-top: 8px;">
+                <span style="font-size: 0.78rem; line-height: 1.3; color: var(--text-secondary);">
+                  Advisor and guide providing technical oversight, suggestion selection, and support in Edge AI model
+                  training pipelines.
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>n>
+
+  <!-- Downloads Section -->
+  <section id="downloads">
+    <div class="downloads-panel">
+      <h2 class="downloads-title">Release Artifacts</h2>
+      <p class="downloads-subtitle">Get direct access to compiling binaries and academic documentations for the
+        VisionMate application system.</p>
+
+      <div class="downloads-buttons">
+        <a href="VISIONMATE-V21.apk" class="btn btn-primary" download>
+          <i class="fa-solid fa-robot"></i> Download Working APK
+        </a>
+        <button class="btn btn-secondary" onclick="openDownloadModal()">
+          <i class="fa-solid fa-file-pdf"></i> Download Project Documentation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Documentation Selection Modal -->
+  <div class="modal-overlay" id="doc-modal" onclick="closeModalOnOverlay(event)">
+    <div class="download-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Select Format</h3>
+        <button class="close-btn" onclick="closeDownloadModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p class="modal-desc">Select the document format to download the complete thesis project documentation:</p>
+      <div class="doc-options">
+        <a href="DOCUMENTATION.docx" class="doc-option-card" download>
+          <div class="doc-icon"><i class="fa-regular fa-file-word"></i></div>
+          <div class="doc-info">
+            <span class="doc-name">Microsoft Word Document (.docx)</span>
+            <span class="doc-size">Size: ~9.26 MB</span>
+          </div>
+        </a>
+        <a href="DOCUMENTATION.pdf" class="doc-option-card" download>
+          <div class="doc-icon"><i class="fa-regular fa-file-pdf"></i></div>
+          <div class="doc-info">
+            <span class="doc-name">PDF Format Documentation (.pdf)</span>
+            <span class="doc-size">Size: ~2.52 MB</span>
+          </div>
+        </a>
+        <a href="DOCUMENTATION.pptx" class="doc-option-card" download>
+          <div class="doc-icon"><i class="fa-regular fa-file-pdf"></i></div>
+          <div class="doc-info">
+            <span class="doc-name">Power PointPresentation (.pptx)</span>
+            <span class="doc-size">Size: ~32.2 MB</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Lightbox Viewer -->
+  <div class="lightbox-overlay" id="lightbox" onclick="closeLightboxOnOverlay(event)">
+    <button class="lightbox-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lightbox-content-wrapper">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Full size preview">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <a href="#" class="footer-logo"><i class="fa-solid fa-terminal"></i> VISION-MATE</a>
+      <div class="footer-links">
+        <a href="https://github.com/Uday-kiran-Tippani/SMART_BLIND_ASSISTANCE_SYSTEM_VISIONMATE_MOBILE_APP" target="_blank" class="github-link">
+          <i class="fa-brands fa-github"></i> GitHub Repository
+        </a>
+        <span class="footer-copy">© 2026 Uday Kiran Tippani. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
